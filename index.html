@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="She felt something was wrong. No one was there. Nothing had happened. But she knew.">
+    <title>She Knew</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Opening Screen - Threshold Moment -->
+    <section class="opening-screen" id="opening-screen">
+        <div class="opening-content">
+            <h1 class="opening-statement">This experience is about women's safety.</h1>
+            <p class="opening-guidance">Read slowly. This may feel familiar.</p>
+            <button class="btn-enter" id="enter-btn">Enter</button>
+        </div>
+    </section>
+
+    <!-- Main Experience Container -->
+    <div class="main-experience" id="main-experience">
+        <!-- Hero Section - Restrained Opening -->
+        <section class="moment-section hero-moment">
+            <div class="moment-grid hero-grid">
+                <div class="moment-text-container hero-text">
+                    <h1 class="moment-title">
+                        <span class="text-line" data-delay="0">She felt something was wrong.</span>
+                    </h1>
+                    <p class="moment-subtitle">
+                        <span class="text-line" data-delay="400">No one was there. Nothing had happened. But she
+                            knew.</span>
+                    </p>
+                    <p class="moment-recognition">
+                        <span class="text-line" data-delay="800">Every woman knows this feeling.</span>
+                    </p>
+                </div>
+                <div class="moment-image-container hero-image">
+                    <img src="images/seq1-wide.png" alt="" class="moment-image fade-left parallax-image">
+                </div>
+            </div>
+            <div class="scroll-hint" id="scroll-hint">
+                <span>Scroll</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Moment 1: Walking Faster -->
+        <section class="moment-section moment-1">
+            <div class="moment-grid grid-left">
+                <div class="moment-image-container">
+                    <img src="images/seq2-lower.png" alt="" class="moment-image fade-bottom parallax-image">
+                </div>
+                <div class="moment-text-container">
+                    <p class="moment-text"><span class="text-line" data-delay="0">Walking faster without knowing
+                            why.</span></p>
+                    <p class="micro-moment"><span class="text-line" data-delay="600">Your palms are cold.</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Moment 2: Phone Grip -->
+        <section class="moment-section moment-2">
+            <div class="moment-grid grid-right">
+                <div class="moment-text-container">
+                    <p class="moment-text"><span class="text-line" data-delay="0">Holding your phone tighter.</span></p>
+                    <p class="micro-moment"><span class="text-line" data-delay="600">You check the battery.
+                            Again.</span></p>
+                </div>
+                <div class="moment-image-container">
+                    <img src="images/seq3-phone.png" alt="" class="moment-image fade-left parallax-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Moment 3: Checking Behind -->
+        <section class="moment-section moment-3">
+            <div class="moment-grid grid-left-wide">
+                <div class="moment-image-container">
+                    <img src="images/seq4-shoulder.png" alt="" class="moment-image fade-right parallax-image">
+                </div>
+                <div class="moment-text-container">
+                    <p class="moment-text"><span class="text-line" data-delay="0">Checking behind you — again.</span>
+                    </p>
+                    <p class="micro-moment"><span class="text-line" data-delay="600">The street is too quiet.</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intentional Pause - Silent Moment -->
+        <section class="pause-section">
+            <div class="textured-space"></div>
+        </section>
+
+        <!-- Moment 4: Heart Racing (Breaking Point) -->
+        <section class="moment-section moment-4">
+            <div class="moment-grid grid-centered">
+                <div class="moment-text-container breaking-point">
+                    <p class="moment-text dominant"><span class="text-line" data-delay="0">Your heart is beating louder
+                            than your footsteps.</span></p>
+                    <p class="micro-moment"><span class="text-line" data-delay="600">You're almost there.</span></p>
+                </div>
+                <div class="moment-image-container faint-image">
+                    <img src="images/seq5-static.png" alt="" class="moment-image very-faint parallax-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Recognition Section - First Person Voice -->
+        <section class="moment-section recognition-moment">
+            <div class="moment-grid grid-staggered">
+                <div class="moment-text-container recognition-text">
+                    <p class="recognition-voice"><span class="text-line" data-delay="0">I used to think I was
+                            overreacting.</span></p>
+                    <p class="recognition-voice"><span class="text-line" data-delay="400">Then I noticed every woman I
+                            know does the same things.</span></p>
+                    <p class="recognition-voice-quiet"><span class="text-line" data-delay="800">We don't talk about
+                            it.</span></p>
+                    <p class="recognition-voice-quiet"><span class="text-line" data-delay="1200">We just… know.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engagement Section -->
+        <section class="moment-section engagement-moment">
+            <div class="moment-grid grid-centered">
+                <div class="moment-text-container engagement-container">
+                    <h2 class="engagement-question">If you've ever felt this, say something.</h2>
+                    <p class="engagement-prompt">If this stopped you while reading…</p>
+                    <button class="btn-engagement" id="engagement-btn">I thought I was the only one.</button>
+                    <p class="solidarity-message" id="solidarity-msg">You're not alone.</p>
+                </div>
+                <div class="moment-image-container soft-background">
+                    <img src="images/seq6-bokeh.png" alt="" class="moment-image ultra-soft">
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Form Section -->
+        <section class="moment-section form-moment" id="feedback">
+            <div class="moment-grid grid-centered">
+                <div class="moment-text-container form-container-editorial">
+                    <div class="form-header">
+                        <h2>If you're willing to share</h2>
+                        <p class="form-intro">We want to understand what actually happens in these moments.<br>
+                            Not what should happen. What does.</p>
+                        <p class="form-intro-quiet">Even anonymously. Even just once.</p>
+                    </div>
+
+                    <!-- Compact Feedback Form -->
+                    <form id="feedback-form" class="compact-feedback-form">
+                        <!-- Email for Updates -->
+                        <div class="form-group-compact">
+                            <label for="email">Email <span class="optional">(For updates on our safety
+                                    device)</span></label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com">
+                        </div>
+
+                        <!-- Question 1: Testing Interest (MCQ) -->
+                        <div class="form-group-compact">
+                            <label>Would you be interested in testing a NEW safety device (when ready)? <span
+                                    class="required">*</span></label>
+                            <div class="radio-group-compact">
+                                <label class="radio-label-compact">
+                                    <input type="radio" name="testing_interest" value="yes" required>
+                                    <span>Yes, definitely interested</span>
+                                </label>
+                                <label class="radio-label-compact">
+                                    <input type="radio" name="testing_interest" value="maybe" required>
+                                    <span>Maybe - want to know more first</span>
+                                </label>
+                                <label class="radio-label-compact">
+                                    <input type="radio" name="testing_interest" value="no" required>
+                                    <span>No, not interested</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 2: Features -->
+                        <div class="form-group-compact">
+                            <label for="features">What features would make you feel TRULY safe? <span
+                                    class="required">*</span></label>
+                            <textarea id="features" name="features" rows="3"
+                                placeholder="Share what matters most to you..." required></textarea>
+                        </div>
+
+                        <!-- Question 3: Current Solutions -->
+                        <div class="form-group-compact">
+                            <label for="current_solution">Do you currently use any safety solution? <span
+                                    class="required">*</span></label>
+                            <textarea id="current_solution" name="current_solution" rows="3"
+                                placeholder="Apps, devices, or methods you rely on..." required></textarea>
+                        </div>
+
+                        <!-- Question 4: Past Experience -->
+                        <div class="form-group-compact">
+                            <label for="past_experience">When you felt threatened, what did you do? <span
+                                    class="required">*</span></label>
+                            <textarea id="past_experience" name="past_experience" rows="3"
+                                placeholder="Your experience, if you're comfortable sharing..." required></textarea>
+                        </div>
+
+                        <!-- Buttons Section -->
+                        <div class="form-buttons-section">
+                            <button type="submit" class="btn-submit-compact" id="submit-btn">Share Your Quick
+                                Response</button>
+
+                            <div class="or-divider">
+                                <span>or</span>
+                            </div>
+
+                            <div class="detailed-form-section">
+                                <p class="detailed-form-intro">Have more to share? Your detailed story could help
+                                    countless women.</p>
+                                <a href="https://forms.gle/7BWQGkcGT1TRDLoQA" target="_blank"
+                                    class="btn-detailed-google-form">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                    <span>Share Your Full Story (5 min)</span>
+                                </a>
+                                <p class="detailed-form-note">Completely anonymous • Helps build safer solutions for all
+                                    women</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="moment-image-container form-background">
+                    <img src="images/seq6-bokeh.png" alt="" class="moment-image ultra-blur">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-editorial">
+            <p>This is about listening, not selling.</p>
+        </footer>
+
+    </div> <!-- End main-experience -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>

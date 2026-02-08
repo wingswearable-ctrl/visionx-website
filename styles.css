@@ -1,0 +1,1179 @@
+/* ===================================
+   CSS Reset & Base
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Film Grain Texture */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* ===================================
+   Opening Screen - Threshold
+   =================================== */
+.opening-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000000;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+.opening-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-content {
+    text-align: center;
+    max-width: 700px;
+    padding: 2rem;
+}
+
+.opening-statement {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.opening-guidance {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.btn-enter {
+    padding: 1.25rem 3rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', sans-serif;
+    animation: fadeInUp 1.8s ease-out;
+}
+
+.btn-enter:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.15));
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+}
+
+/* Main Experience Container */
+.main-experience {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.main-experience.visible {
+    opacity: 1;
+}
+
+/* ===================================
+   Typography
+   =================================== */
+h1,
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* ===================================
+   Moment Sections - Editorial Layout
+   =================================== */
+.moment-section {
+    position: relative;
+    width: 100%;
+    background: #000000;
+    overflow: hidden;
+}
+
+/* Varied Section Heights */
+.hero-moment {
+    min-height: 100vh;
+}
+
+.moment-1,
+.moment-2,
+.moment-3 {
+    min-height: auto;
+    padding: 2rem 0;
+}
+
+.moment-4 {
+    min-height: auto;
+    padding: 2rem 0;
+}
+
+.recognition-moment {
+    min-height: auto;
+    padding: 3rem 0;
+}
+
+.engagement-moment {
+    min-height: auto;
+    padding: 3rem 0;
+}
+
+.form-moment {
+    min-height: auto;
+    padding: 3rem 0;
+}
+
+/* Intentional Pause Section */
+.pause-section {
+    height: 40px;
+    background: #000000;
+    position: relative;
+}
+
+.textured-space {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 0.3) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+/* ===================================
+   Grid Layouts - Asymmetric Compositions
+   =================================== */
+.moment-grid {
+    display: grid;
+    width: 100%;
+    position: relative;
+}
+
+/* Hero Grid - Image Right, Text Left */
+.hero-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+/* Left Image, Right Text (40/60) */
+.grid-left {
+    grid-template-columns: 40% 60%;
+    align-items: center;
+}
+
+/* Right Image, Left Text (60/40) */
+.grid-right {
+    grid-template-columns: 60% 40%;
+    align-items: center;
+}
+
+/* Left Image Wide, Right Text (65/35) */
+.grid-left-wide {
+    grid-template-columns: 65% 35%;
+    align-items: center;
+}
+
+/* Centered Text with Background Image */
+.grid-centered {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.grid-centered>* {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* Staggered Text Only */
+.grid-staggered {
+    grid-template-columns: 1fr;
+    place-items: center;
+}
+
+/* ===================================
+   Image Containers & Treatments
+   =================================== */
+.moment-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.moment-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Image Fade Effects */
+.fade-left {
+    mask-image: linear-gradient(to left, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
+}
+
+.fade-right {
+    mask-image: linear-gradient(to right, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+}
+
+.fade-bottom {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* Faint Background Image */
+.faint-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.very-faint {
+    opacity: 0.15;
+}
+
+/* Soft Background for Engagement */
+.soft-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.ultra-soft {
+    opacity: 0.2;
+    filter: blur(60px);
+}
+
+/* Form Background */
+.form-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.ultra-blur {
+    opacity: 0.15;
+    filter: blur(80px);
+}
+
+/* ===================================
+   Text Containers - Off-Center Positioning
+   =================================== */
+.moment-text-container {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+}
+
+/* Hero Text - Lower Left */
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* Breaking Point - Centered Dominant */
+.breaking-point {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+/* Recognition Text - Staggered */
+.recognition-text {
+    max-width: 900px;
+    padding: 2rem 1.5rem;
+}
+
+/* Engagement Container */
+.engagement-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+/* Form Container - Editorial Style */
+.form-container-editorial {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===================================
+   Hero Typography
+   =================================== */
+.moment-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.moment-subtitle {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    color: #e5e7eb;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    line-height: 1.5;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+    animation: fadeInUp 1.8s ease-out;
+}
+
+.moment-recognition {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: #d1d5db;
+    font-style: italic;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+    animation: fadeInUp 2.1s ease-out;
+}
+
+/* ===================================
+   Scroll Hint
+   =================================== */
+.scroll-hint {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: fadeInUp 2.5s ease-out, pulse 2s ease-in-out 3s infinite;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-hint:hover {
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.scroll-hint svg {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* ===================================
+   Moment Text - Emotional Lines
+   =================================== */
+.moment-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.3;
+    max-width: 700px;
+    text-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
+}
+
+.moment-text.dominant {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    max-width: 900px;
+}
+
+/* Text Line Animation System */
+.text-line {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.moment-section.visible .text-line,
+.recognition-moment.visible .text-line {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delays applied via data-delay attribute in JS */
+
+/* Micro-Moments */
+.micro-moment {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 1.5rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out 0.8s, transform 1.5s ease-out 0.8s;
+}
+
+.moment-section.visible .micro-moment {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================
+   Recognition Voice - First Person
+   =================================== */
+.recognition-voice {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+}
+
+.recognition-voice:nth-of-type(1) {
+    text-align: left;
+}
+
+.recognition-voice:nth-of-type(2) {
+    text-align: right;
+    padding-left: 10%;
+}
+
+.recognition-voice-quiet {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+.recognition-voice-quiet:nth-of-type(3) {
+    text-align: left;
+}
+
+.recognition-voice-quiet:nth-of-type(4) {
+    text-align: left;
+    padding-left: 5%;
+}
+
+/* ===================================
+   Engagement Section
+   =================================== */
+.engagement-question {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+    letter-spacing: -0.01em;
+}
+
+/* Engagement Prompt - Supporting Line */
+.engagement-prompt {
+    font-size: clamp(0.95rem, 2vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+.btn-engagement {
+    padding: 1.75rem 4rem;
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 500;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.1));
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+}
+
+.btn-engagement::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-engagement:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-engagement:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.14));
+    border-color: rgba(255, 255, 255, 0.75);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.12);
+}
+
+/* Parallax Image Motion */
+.parallax-image {
+    transition: transform 0.5s ease-out;
+    will-change: transform;
+}
+
+/* Solidarity Message */
+.solidarity-message {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 2rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    pointer-events: none;
+}
+
+.solidarity-message.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================
+   Form Section - Editorial Style
+   =================================== */
+.form-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.form-header h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+    letter-spacing: -0.01em;
+}
+
+.form-intro {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+.form-intro-quiet {
+    font-size: clamp(0.875rem, 1.75vw, 1rem);
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    margin-top: 0.75rem;
+}
+
+.feedback-form-editorial {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.form-group label {
+    color: #e5e7eb;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.optional {
+    color: #9ca3af;
+    font-weight: 400;
+    font-size: 0.875rem;
+}
+
+.required {
+    color: #ffffff;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 1rem 1.25rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Question Hints */
+.question-hint {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin-top: -0.5rem;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+}
+
+/* Checkbox Groups */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: rgba(255, 255, 255, 0.9);
+}
+
+.checkbox-label span {
+    color: #e5e7eb;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"]:checked+span {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Other Input Field */
+.other-input {
+    margin-top: 0.75rem;
+    padding: 0.875rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.other-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Form Closing Message */
+.form-closing {
+    text-align: center;
+    color: #d1d5db;
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.privacy-notice-editorial {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.privacy-notice-editorial svg {
+    flex-shrink: 0;
+    color: #ffffff;
+}
+
+.privacy-notice-editorial div p {
+    color: #e5e7eb;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.privacy-notice-editorial div p:last-child {
+    margin-bottom: 0;
+}
+
+.privacy-notice-editorial strong {
+    color: #ffffff;
+}
+
+.btn-submit-editorial {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+    color: #0a0a0a;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit-editorial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-submit-editorial:hover::before {
+    left: 100%;
+}
+
+.btn-submit-editorial:hover {
+    background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.98));
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.25), 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================================
+   Compact Feedback Form
+   =================================== */
+.compact-feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.form-group-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group-compact label {
+    color: #e5e7eb;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.form-group-compact input[type="email"],
+.form-group-compact textarea {
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group-compact input[type="email"]:focus,
+.form-group-compact textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.form-group-compact textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Radio Buttons - Compact */
+.radio-group-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.radio-label-compact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.radio-label-compact:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.radio-label-compact input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: rgba(255, 255, 255, 0.9);
+}
+
+.radio-label-compact span {
+    color: #e5e7eb;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.radio-label-compact input[type="radio"]:checked+span {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Submit Button - Compact */
+.btn-submit-compact {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-submit-compact:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.18));
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+}
+
+/* Form Buttons Section */
+.form-buttons-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* OR Divider */
+.or-divider {
+    position: relative;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.or-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.or-divider span {
+    position: relative;
+    background: #000000;
+    padding: 0 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    font-style: italic;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Detailed Form Section */
+.detailed-form-section {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+
+.detailed-form-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.btn-detailed-google-form {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.125rem 2.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.06));
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+}
+
+.btn-detailed-google-form:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.12));
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-detailed-google-form svg {
+    flex-shrink: 0;
+}
+
+.detailed-form-note {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+/* ===================================
+   Footer
+   =================================== */
+.footer-editorial {
+    padding: 3rem 0;
+    text-align: center;
+    background: #000000;
+}
+
+.footer-editorial p {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* ===================================
+   Fade In Animation
+   =================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 1024px) {
+
+    .hero-grid,
+    .grid-left,
+    .grid-right,
+    .grid-left-wide {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .moment-image-container {
+        min-height: 50vh;
+    }
+
+    .hero-text {
+        order: 1;
+    }
+
+    .hero-image {
+        order: 2;
+    }
+
+    .recognition-voice:nth-of-type(2) {
+        text-align: left;
+        padding-left: 0;
+    }
+
+    .recognition-voice-quiet:nth-of-type(4) {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .moment-text-container {
+        padding: 2rem;
+    }
+
+    .hero-text,
+    .breaking-point {
+        padding: 2rem;
+    }
+
+    .form-container-editorial {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-engagement {
+        padding: 1.25rem 2.5rem;
+    }
+
+    .scroll-hint {
+        bottom: 2rem;
+    }
+
+    .pause-section {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .moment-text-container {
+        padding: 1.5rem;
+    }
+
+    .form-container-editorial {
+        padding: 1.5rem 1rem;
+    }
+
+    .privacy-notice-editorial {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
